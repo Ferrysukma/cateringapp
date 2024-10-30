@@ -1,5 +1,8 @@
+import Image from "next/image";
 import Logo from "@/assets/images/logo.svg";
 import FlagId from "@/assets/images/flag-id.svg";
+import Slider from "@/components/Slider";
+import Categories from "@/components/Categories";
 
 export default function Home() {
   return (
@@ -9,15 +12,47 @@ export default function Home() {
           <span className="text-color1">
             <Logo />
           </span>
-          <span className="font-bold text-2xl">Katerina</span>
+          <span className="font-bold text-2xl text-color1">Katerina</span>
         </span>
         <span className="relative">
           <button className="flex gap-x-2 border border-gray1 rounded-full py-1 px-2">
             <FlagId />
-            <span className="">IDN</span>
+            <span className="text-color1">IDN</span>
           </button>
         </span>
       </header>
+
+      <section className="relative">
+        <Slider spaceBetween={20} swiperClassName="!h-[180px] !px-4" swiperSlideClassName="!max-w-xs">
+          <div className="h-full rounded-3xl overflow-hidden relative border">
+            <figure className="w-full h-full absolute">
+              <Image fill className="w-full h-full object-cover object-center" src="/images/slide1.png" alt="slide 1" sizes="(max-width: 768px)" />
+            </figure>
+            <div className="absolute inset-0 bg-gradient-to-r from-black to-black/0"></div>
+            <div className="absolute left-0 bottom-0 top-0 pl-4 w-32 flex flex-col justify-center font-bold">
+              <span className="text-white">Sale</span>
+              <span className="text-color1 text-4xl">50%</span>
+              <span className="text-white">Potongan</span>
+            </div>
+            {/* <a href="details.html" className="absolute inset-0"></a> */}
+          </div>
+
+          <div className="h-full rounded-3xl overflow-hidden relative border">
+            <figure className="w-full h-full absolute">
+              <Image fill className="w-full h-full object-cover object-center" src="/images/slide2.png" alt="slide 2" sizes="(max-width: 768px)" />
+            </figure>
+            <div className="absolute inset-0 bg-gradient-to-r from-black to-black/0"></div>
+            <div className="absolute left-0 bottom-0 top-0 pl-4 w-32 flex flex-col justify-center font-bold">
+              <span className="text-white">Sale</span>
+              <span className="text-color1 text-4xl">50%</span>
+              <span className="text-white">Potongan</span>
+            </div>
+            {/* <a href="details.html" className="absolute inset-0"></a> */}
+          </div>
+        </Slider>
+      </section>
+
+      <Categories />
     </>
   );
 }

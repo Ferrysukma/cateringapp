@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactNode, useLayoutEffect } from "react";
 
-type Props = {};
-
 export type TmodalRegistered = "tier" | "filter-category";
 export type TmodalPosRegistered = "center" | "bottom";
 

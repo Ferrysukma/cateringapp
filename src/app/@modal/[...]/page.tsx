@@ -1,4 +1,4 @@
-import { TmodalPosRegistered, TmodalRegistered } from "@/components/modal";
+import { TmodalPosRegistered, TmodalRegistered } from "@/components/Modal";
 import React from "react";
 
 type Request = {
