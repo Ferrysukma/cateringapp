@@ -3,6 +3,8 @@ import Logo from "@/assets/images/logo.svg";
 import FlagId from "@/assets/images/flag-id.svg";
 import Slider from "@/components/Slider";
 import Categories from "@/components/Categories";
+import Packages from "@/components/Packages";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -53,6 +55,21 @@ export default function Home() {
       </section>
 
       <Categories />
+
+      <section className="relative">
+        <h2 className="font-semibold mb-4 px-4">Most People Love It</h2>
+        <Packages show="popular" />
+      </section>
+
+      <section className="relative">
+        <h2 className="font-semibold mb-4 px-4">Most People Love It</h2>
+        <Testimonials />
+      </section>
+
+      <section className="relative">
+        <h2 className="font-semibold mb-4 px-4">Fresh From Kitchen</h2>
+        <Packages show="newest" />
+      </section>
     </>
   );
 }
