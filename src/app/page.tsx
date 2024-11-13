@@ -5,11 +5,12 @@ import Slider from "@/components/Slider";
 import Categories from "@/components/Categories";
 import Packages from "@/components/Packages";
 import Testimonials from "@/components/Testimonials";
+import BottomBar from "@/components/Bar";
 
 export default function Home() {
   return (
     <>
-      <header className="flex items-center justify-between px-4">
+      <header className="flex items-center justify-between px-4 pt-16">
         <span className="flex gap-x-2 items-center">
           <span className="text-color1">
             <Logo />
@@ -70,6 +71,8 @@ export default function Home() {
         <h2 className="font-semibold mb-4 px-4">Fresh From Kitchen</h2>
         <Packages show="newest" />
       </section>
+
+      <BottomBar />
     </>
   );
 }

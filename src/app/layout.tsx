@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poopins.className}>
       <body>
-        <main className="container max-w-sm mx-auto flex flex-col gap-y-5 relative pt-16">{children}</main>
+        <main className="container max-w-sm mx-auto flex flex-col gap-y-5 relative">{children}</main>
         {modal}
       </body>
     </html>

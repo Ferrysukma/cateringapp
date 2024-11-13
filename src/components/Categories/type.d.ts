@@ -1,3 +1,5 @@
+import { TPackages } from "@/components/Packages/type";
+
 export type TCategory = {
   id: number;
   name: string;
@@ -6,5 +8,6 @@ export type TCategory = {
   deleted_at: string | null;
   created_at: string;
   updated_at: string;
-  catering_packages: [];
+  catering_packages: TPackages[];
+  catering_packages_count: number;
 };
