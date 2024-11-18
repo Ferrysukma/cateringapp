@@ -4,7 +4,6 @@ import { getDetailCategory } from "@/components/Categories/action";
 import Image from "next/image";
 import PeopleImg from "@/assets/images/people.svg";
 
-import "@/libs/thousands";
 import { ContentNewest, ContentPopular } from "@/components/Packages";
 import { OpenModal } from "@/components/Modal";
 import { getPackageFiltered } from "@/components/Packages/action";

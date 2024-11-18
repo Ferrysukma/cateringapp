@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
 import "@/assets/css/index.css";
+import "@/libs/thousands";
 
 const poopins = Poppins({
   weight: ["400", "600", "700"],

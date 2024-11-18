@@ -1,5 +1,10 @@
 import { TCategory } from "@/Categories/type";
 import { TCity } from "@/Cities/type";
+import { TKitchen } from "../Kitchen/type";
+import { TTier } from "../Tiers/type";
+import { TPhoto } from "../Photos/type";
+import { TBonus } from "../Bonuses/type";
+import { TTestimonials } from "../Testimonials/type";
 
 export type TPackages = {
   id: number;
@@ -10,8 +15,11 @@ export type TPackages = {
   about: string;
   city: TCity;
   category: TCategory;
-  kitchen: {};
-  tiers: [];
+  kitchen: TKitchen;
+  tiers: TTier[];
+  photos: TPhoto[];
+  bonuses: TBonus[];
+  testimonials: TTestimonials[];
 };
 
 export type TShow = "popular" | "newest";
