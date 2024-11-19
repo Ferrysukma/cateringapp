@@ -5,6 +5,26 @@ import VerifiedImg from "@/assets/images/verified.svg";
 import TimeImg from "@/assets/images/time.svg";
 import PeopleImg from "@/assets/images/people.svg";
 import Link from "next/link";
+import { OpenModal } from "../Modal";
+
+export function TierComponentSingle({ data, packageSlug, tierId }: { data: TTier; packageSlug: string; tierId: string }) {
+  return (
+    <div className="">
+      <h2 className="font-semibold mb-3">Tier Package</h2>
+      <div className="flex flex-col gap-y-3 h-full p-4 rounded-3xl relative border-2 border-dashed">
+        <span className="flex gap-x-2 items-center">
+          <figure className="w-[100px] h-[80px] rounded-2xl overflow-hidden relative">
+            <Image fill className="w-full h-full object-cover object-center" src={`${process.env.NEXT_PUBLIC_HOST_API}/${data.photo}`} alt={data.name} sizes="(max-width: 768px)" />
+          </figure>
+          <h3 className="font-semibold text-lg">{data.name}</h3>
+          <OpenModal modal="tier" queries={{ packageSlug: packageSlug, tierId: tierId }} className="bg-gray1 px-3 font-semibold text-sm py-1 flex rounded-full">
+            Details
+          </OpenModal>
+        </span>
+      </div>
+    </div>
+  );
+}
 
 function TiersComponent({ data, packageSlug }: { data: TTier[]; packageSlug: string }) {
   return (
@@ -16,8 +36,8 @@ function TiersComponent({ data, packageSlug }: { data: TTier[]; packageSlug: str
               <Image fill className="w-full h-full object-cover object-center" src={`${process.env.NEXT_PUBLIC_HOST_API}/${item.photo}`} alt={item.name} sizes="(max-width: 768px)" />
             </figure>
             <span className="flex flex-col">
-              <h2 className="font-semibold text-lg">Family Ceria</h2>
-              <span className="text-gray2 text-sm">Untuk anda baru memulai</span>
+              <h2 className="font-semibold text-lg">{item.name}</h2>
+              <span className="text-gray2 text-sm">{item.message}</span>
             </span>
           </span>
 

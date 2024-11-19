@@ -82,3 +82,36 @@ export async function submitInformation(prevState: any, formData: FormData) {
     },
   };
 }
+
+export async function submitShippment(prevState: any, formData: FormData) {
+  const address = formData.get("address");
+  const post_code = formData.get("post_code");
+  const slug = formData.get("slug");
+  const notes = formData.get("notes");
+  const tierId = formData.get("tierId");
+
+  if (address === "") {
+    return {
+      message: "Alamat tidak boleh kosong",
+      field: "address",
+    };
+  }
+  if (post_code === "") {
+    return {
+      message: "Kode Pos tidak boleh kosong",
+      field: "post_code",
+    };
+  }
+
+  return {
+    message: "Next Step",
+    field: "",
+    data: {
+      address,
+      post_code,
+      slug,
+      notes,
+      tierId,
+    },
+  };
+}

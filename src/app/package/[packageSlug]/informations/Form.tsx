@@ -40,13 +40,13 @@ function FormInformation({ data, tierId }: Props) {
   const [state, formAction] = useFormState(submitInformation, initialState);
 
   useEffect(() => {
-    if (!!state.field && state.field != "") {
+    if (!!state.field && state.field !== "") {
       const element = document.getElementById(state.field)!;
       element.focus();
     } else if (state.data) {
       checkoutSet((prev) => ({ ...prev, [state.data.slug]: { ...prev[state.data.slug], ...state.data } }));
+      router.push(`/package/${data.slug}/shipping?tier=${tierId}`);
     }
-    router.push(`/packages/${data.slug}/shipping?tier=${tierId}`);
   }, [state]);
 
   return (

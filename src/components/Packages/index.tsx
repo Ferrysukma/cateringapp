@@ -5,8 +5,10 @@ import Slider from "../Slider";
 import CategoryImg from "@/assets/images/category.svg";
 import PeopleImg from "@/assets/images/people.svg";
 import LocationImg from "@/assets/images/location.svg";
+import NoteImg from "@/assets/images/note.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { TTier } from "../Tiers/type";
 
 type Props = {
   show: TShow;
@@ -83,6 +85,32 @@ export function ContentNewest({ data }: { data: TPackages[] }) {
           </span>
         </div>
       ))}
+    </div>
+  );
+}
+
+export function PackageCard({ data, currentTier }: { data: TPackages; currentTier?: TTier }) {
+  return (
+    <div className="flex gap-x-3">
+      <figure className="w-[100px] h-[120px] flex-none rounded-2xl overflow-hidden relative">
+        <Image fill className="w-full h-full object-cover object-center" src={`${process.env.NEXT_PUBLIC_HOST_API}/${data.thumbnail}`} alt={data.name} sizes="(max-width: 768px)" />
+      </figure>
+      <span className="flex flex-col gap-y-3 pt-4">
+        <span className="font-semibold">{data.name}</span>
+        <span className="flex gap-x-1">
+          <span className="text-color2">
+            <NoteImg />
+          </span>
+          <span className="text-gray2">{data.category.name}</span>
+        </span>
+
+        <span className="flex gap-x-1">
+          <span className="text-color2">
+            <PeopleImg />
+          </span>
+          <span className="text-gray2">{currentTier?.quantity} orang</span>
+        </span>
+      </span>
     </div>
   );
 }
