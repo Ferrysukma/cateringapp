@@ -159,3 +159,18 @@ export async function submitPayment(prevState: any, formData: FormData) {
     };
   }
 }
+
+export async function detailBooking(phone: string, trxId: string) {
+  const formData = new FormData();
+  formData.append("phone", phone);
+  formData.append("booking_trx_id", trxId);
+  try {
+    const res = await fetch(`${process.env.HOST_API}/check-booking`, {
+      method: "POST",
+      body: formData,
+    });
+    return res.json();
+  } catch (error) {
+    return error;
+  }
+}

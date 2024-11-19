@@ -23,3 +23,27 @@ export type TPackages = {
 };
 
 export type TShow = "popular" | "newest";
+
+export type TBookingDetail = {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  post_code: string;
+  city: string;
+  address: string;
+  notes: string;
+  started_at: string;
+  ended_at: string;
+  booking_trx_id: string;
+  price: number;
+  total_tax_amount: number;
+  total_amount: number;
+  delivery_time: string;
+  quantity: number;
+  duration: number;
+  is_paid: 1 | 0;
+  proof: string;
+  cateringPackage: TPackages;
+  cateringTier: TTier;
+};

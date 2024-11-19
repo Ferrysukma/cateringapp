@@ -7,9 +7,11 @@ import PromoImg from "@/assets/images/promo.svg";
 import OrderImg from "@/assets/images/order.svg";
 import Link from "next/link";
 
-type Props = {};
+type Props = {
+  addClass?: string;
+};
 
-function BottomBar({}: Props) {
+function BottomBar({ addClass }: Props) {
   const pathName = usePathname();
   const menu = [
     {
@@ -21,7 +23,7 @@ function BottomBar({}: Props) {
     {
       key: "order",
       title: "Order",
-      slug: "/order",
+      slug: "/booking",
       icon: <OrderImg />,
     },
     {
@@ -39,7 +41,7 @@ function BottomBar({}: Props) {
   ];
 
   return (
-    <div className="sticky bottom-4 px-4 z-50">
+    <div className={["sticky bottom-4 px-4 z-50", addClass].join(" ")}>
       <ul className="rounded-full flex justify-evenly gap-x-3 bg-white shadow-[0px_12px_30px_0px_#07041517] p-3">
         {menu.map((item) => {
           let isActive = false;
