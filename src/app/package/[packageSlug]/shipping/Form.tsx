@@ -71,7 +71,7 @@ function FormShipping({ data, tierId }: Props) {
                 </span>
                 <div className="pl-12 flex flex-col w-full justify-center pr-4 h-[69px] rounded-2xl bg-gray3">
                   <span className="text-sm text-gray2">Started At</span>
-                  <span className="font-semibold">{format(checkout[data.slug].started_at, "dd LLLL yyyy")}</span>
+                  <span className="font-semibold">{checkout[data.slug]?.started_at ? format(checkout[data.slug].started_at, "dd LLLL yyyy") : ""}</span>
                 </div>
               </div>
 
@@ -104,7 +104,7 @@ function FormShipping({ data, tierId }: Props) {
                   name="address"
                   id="address"
                   placeholder="Address"
-                  defaultValue={checkout[data.slug].address}
+                  defaultValue={checkout[data.slug]?.address || ""}
                 ></textarea>
                 <label
                   htmlFor="address"
@@ -124,7 +124,7 @@ function FormShipping({ data, tierId }: Props) {
                   name="post_code"
                   id="post_code"
                   placeholder="Post code"
-                  defaultValue={checkout[data.slug].post_code}
+                  defaultValue={checkout[data.slug]?.post_code || ""}
                 />
                 <label
                   htmlFor="post_code"
@@ -143,7 +143,7 @@ function FormShipping({ data, tierId }: Props) {
                   name="notes"
                   id="notes"
                   placeholder="Notes"
-                  defaultValue={checkout[data.slug].notes}
+                  defaultValue={checkout[data.slug]?.notes || ""}
                 ></textarea>
                 <label
                   htmlFor="notes"

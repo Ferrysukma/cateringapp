@@ -1,3 +1,12 @@
+"use server";
+
+interface File {
+  size: number;
+  type: string;
+  name: string;
+  lastModified: number;
+}
+
 export async function getAllPackages() {
   try {
     const res = await fetch(`${process.env.HOST_API}/catering-packages`, {
@@ -114,4 +123,39 @@ export async function submitShippment(prevState: any, formData: FormData) {
       tierId,
     },
   };
+}
+
+export async function submitPayment(prevState: any, formData: FormData) {
+  const proof = formData.get("proof") as File;
+  const slug = formData.get("slug") as string;
+  const phone = formData.get("phone");
+
+  if (proof.size === 0) {
+    return {
+      message: "Bukti Bayar tidak boleh kosong",
+      field: "proof",
+    };
+  }
+
+  try {
+    const res = await fetch(`${process.env.HOST_API}/booking-transaction`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    return {
+      message: "Next Step",
+      field: "",
+      data: {
+        slug,
+        phone,
+        booking_trx_id: data.data.booking_trx_id,
+      },
+    };
+  } catch (error: any) {
+    return {
+      message: error.message,
+      field: "toaster",
+    };
+  }
 }

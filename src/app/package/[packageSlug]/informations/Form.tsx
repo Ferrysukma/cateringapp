@@ -75,7 +75,7 @@ function FormInformation({ data, tierId }: Props) {
                   name="name"
                   id="name"
                   placeholder="Full Name"
-                  defaultValue={checkout[data.slug].name}
+                  defaultValue={checkout[data.slug]?.name || ""}
                 />
                 <label
                   htmlFor="name"
@@ -95,7 +95,7 @@ function FormInformation({ data, tierId }: Props) {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  defaultValue={checkout[data.slug].email}
+                  defaultValue={checkout[data.slug]?.email || ""}
                 />
                 <label
                   htmlFor="email"
@@ -115,7 +115,7 @@ function FormInformation({ data, tierId }: Props) {
                   name="phone"
                   id="phone"
                   placeholder="Phone"
-                  defaultValue={checkout[data.slug].phone}
+                  defaultValue={checkout[data.slug]?.phone || ""}
                 />
                 <label
                   htmlFor="phone"
@@ -135,7 +135,7 @@ function FormInformation({ data, tierId }: Props) {
                   name="started_at"
                   id="started_at"
                   placeholder="Start At"
-                  defaultValue={checkout[data.slug].started_at}
+                  defaultValue={checkout[data.slug]?.started_at || ""}
                 />
                 <label
                   htmlFor="started_at"
