@@ -7,7 +7,7 @@ import PeopleImg from "@/assets/images/people.svg";
 import Link from "next/link";
 import { OpenModal } from "../Modal";
 
-export function TierComponentSingle({ data, packageSlug, tierId }: { data: TTier; packageSlug: string; tierId: string }) {
+export function TierComponentSingle({ data, packageSlug, tierId }: { data: TTier; packageSlug: string; tierId: string | number }) {
   return (
     <div className="">
       <h2 className="font-semibold mb-3">Tier Package</h2>

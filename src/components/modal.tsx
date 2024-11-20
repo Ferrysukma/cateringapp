@@ -42,7 +42,7 @@ export function OpenModal({
 }: {
   modal: TmodalRegistered;
   modalPosition?: TmodalPosRegistered;
-  queries: { [key: string]: string };
+  queries: { [key: string | number]: string | number };
   children?: ReactNode;
   className?: string;
 }) {

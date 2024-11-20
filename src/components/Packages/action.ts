@@ -1,5 +1,7 @@
 "use server";
 
+import { redirect } from "next/navigation";
+
 interface File {
   size: number;
   type: string;
@@ -173,4 +175,32 @@ export async function detailBooking(phone: string, trxId: string) {
   } catch (error) {
     return error;
   }
+}
+
+export async function navigateBooking(prevState: any, formData: FormData) {
+  const phone = formData.get("phone");
+  const booking_trx_id = formData.get("booking_trx_id");
+
+  if (phone === "") {
+    return {
+      message: "Nomor Telepon tidak boleh kosong",
+      field: "phone",
+    };
+  }
+  if (booking_trx_id === "") {
+    return {
+      message: "Booking ID tidak boleh kosong",
+      field: "booking_trx_id",
+    };
+  }
+
+  // return redirect(`/booking/detail?phone=${phone}&trx-id=${booking_trx_id}`);
+  return {
+    message: "Next Step",
+    field: "",
+    data: {
+      phone,
+      booking_trx_id: booking_trx_id,
+    },
+  };
 }

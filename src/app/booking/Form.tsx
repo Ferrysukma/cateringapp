@@ -1,11 +1,37 @@
+"use client";
 import PhoneImg from "@/assets/images/phone.svg";
 import FileImg from "@/assets/images/file.svg";
+import { useFormState } from "react-dom";
+import { navigateBooking } from "@/components/Packages/action";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
+const initialState: {
+  message: string;
+  field: string;
+  data?: any;
+} = {
+  message: "",
+  field: "",
+};
+
 function FormBooking({}: Props) {
+  const router = useRouter();
+  const [state, formAction] = useFormState(navigateBooking, initialState);
+
+  useEffect(() => {
+    if (!!state.field && state.field !== "") {
+      const element = document.getElementById(state.field)!;
+      element.focus();
+    } else if (state.data) {
+      router.push(`/booking/detail?phone=${state.data.phone}&trx-id=${state.data.booking_trx_id}`);
+    }
+  }, [state]);
+
   return (
-    <form>
+    <form action={formAction}>
       <section className="relative flex flex-col items-center gap-y-4 w-full px-4">
         <h2 className="font-bold text-2xl text-center">View Your Order</h2>
 
